@@ -1,85 +1,89 @@
 body {
-  background: #191919;
-  font-family: "MS UI Gothic", "Courier New", monospace;
+  background: #dcdcdc;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-family: sans-serif;
 }
 
-/* window */
+/* main window */
 .window {
-  width: 420px;
-  background: #f6d6dc;
-  border: 2px solid black;
-  box-shadow: 6px 6px 0px black;
+  width: 600px;
+  height: 500px;
+  border-radius: 10px;
+  background: linear-gradient(#6ea0d8, #3a6ea5);
+  padding: 6px;
+  box-shadow: 0 0 0 1px #2c4f7a, 0 8px 20px rgba(0,0,0,0.3);
 }
 
 /* title bar */
 .title-bar {
-  background: linear-gradient(to right, #ff4d88, #ff80ab);
-  color: white;
-  padding: 4px 6px;
+  height: 30px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(#7fb2e6, #3c6fa8);
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
+  padding: 0 8px;
+  color: white;
 }
 
-/* fake window buttons */
-.buttons {
+/* window buttons */
+.window-controls {
   display: flex;
-  gap: 4px;
+  gap: 6px;
 }
 
-.btn {
+.control {
+  width: 28px;
+  height: 20px;
+  border-radius: 3px;
+  background: linear-gradient(#dfefff, #9dbbe0);
+  border: 1px solid #5a7ea6;
+  position: relative;
+}
+
+/* symbols */
+.control.min::before {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 6px;
   width: 14px;
-  height: 14px;
-  background: #ffc0cb;
-  border: 1px solid black;
+  height: 2px;
+  background: #2d4f75;
 }
 
-/* content */
-.content {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 18px;
+.control.max::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: 14px;
+  height: 10px;
+  border: 2px solid #2d4f75;
 }
 
-.icon {
-  width: 48px;
-  height: 48px;
-  image-rendering: pixelated;
+.control.close {
+  background: linear-gradient(#f28b82, #c0392b);
+  border: 1px solid #7a1f1f;
 }
 
-/* text */
-.text {
-  text-align: center;
-  flex: 1;
+.control.close::before {
+  content: "×";
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  left: 8px;
+  top: 1px;
 }
 
-#message {
-  margin: 0;
-  font-size: 18px;
-}
-
-.face {
-  margin: 5px 0;
-}
-
-/* button */
-button {
-  margin-top: 10px;
-  padding: 4px 18px;
-  border: 2px solid black;
-  background: #ffdbe3;
-  font-family: inherit;
-  cursor: pointer;
-  box-shadow: 2px 2px 0 black;
-}
-
-button:active {
-  transform: translate(2px, 2px);
-  box-shadow: none;
+/* inner content */
+.window-content {
+  background: #f2f2f2;
+  height: calc(100% - 30px);
+  border-radius: 0 0 6px 6px;
+  border: 1px solid #999;
+  margin-top: 4px;
 }
